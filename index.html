@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- Lager en overskrift med h1 (hovedoverskrift) -->
+      <h1>Rock Paper Scissors</h1>
+
+      <h2 id="displayCash"></h2>
+
+      <h2 id="displayCost"></h2>
+
+      <!-- Lag knapper for hver av valgene til spillerene -->
+      <!-- id brukes for å kunne finne elementet i Javascript. 
+        Hver ID være forskjellig, og gjerne ha en navn som passer til hva knappen gjør -->
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+
+      <!-- Lager et h2 element for en underoverskrift -->
+      <h2>Your Choice:</h2>
+      <!-- Lager et p element (paragraph) for å endre denne til å vise hva du har valg-->
+      <p id="yourChoice"></p>
+
+      <!-- Lager enda et h2 element for en underoverskrift til -->
+      <h2>Computer Choice:</h2>
+      <!-- Og lager enda en p element for å vise hva pcen velger -->
+      <p id="computerChoice"></p>
+
+      <!-- Til slutt lager vi et h2 element, som vi skal endre til å vise resultatet på siden. -->
+      <h2 id="results"></h2>
+
+      <h2 id="wins"></h2>
+
+      <h2 id="draws"></h2>
+
+      <h2 id="losses"></h2>
+    </main>
+  </body>
+</html>
