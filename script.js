@@ -17,7 +17,11 @@ let draws = 0;
 let losses = 0;
 let cash = 1000;
 let cost = 100;
+
+//definerer en nye variabel for å telle oppover
 let counting = 0;
+//og en for at man ikke kan trykke for raskt
+let playing = false
 
 let yourChoice;
 
@@ -54,22 +58,33 @@ displayYourChoice.innerHTML = 'Chose one!';
 displayComputerChoice.innerHTML = 'Computer choses';
 
 function computerChoice() {
-  if (counting === 0) {
+  //setter inn en if statement over hele funksjonen
+  //som gjør at det kun kan kjøre når playing er false
+  if (playing === false) {
+    //endrer den til true med en gang
+    playing = true
+
+    // Lager en setInterval funksjon, som teller pengene ned
     let timerID = setInterval(() => {
       cash--;
       counting++;
       displayCash.innerHTML = 'Cash: ' + cash;
+      //og fjerner setInterval når countering er på 100
       if (counting === 100) {
         clearInterval(timerID);
         counting = 0;
       }
     }, 10);
+
     displayYourChoice.innerHTML = yourChoice;
+
+    //setter deretter inn en setTimeout, som gjør at hele funksjonen inni, skal vente i 2000ms
     setTimeout(() => {
       let computerNumber = choices[Math.floor(Math.random() * 3)];
 
       displayComputerChoice.innerHTML = computerNumber;
 
+      //og setter inn enda en setTimeout inne i setTimeout for at den skal vente litt lengre med å vise resultatet
       setTimeout(() => {
         if (yourChoice === computerNumber) {
           displayResults.innerHTML = 'Its a draw!';
@@ -80,6 +95,9 @@ function computerChoice() {
             if (counting === 100) {
               clearInterval(timerID);
               counting = 0;
+              //og endrer playing til false når hele er gått igjennom
+              //sånn at man kan spille igjen.
+              playing = false
             }
           }, 5);
           draws++;
@@ -93,6 +111,7 @@ function computerChoice() {
             if (counting === 100) {
               clearInterval(timerID);
               counting = 0;
+              playing = false
             }
           }, 5);
           wins++;
@@ -106,6 +125,7 @@ function computerChoice() {
             if (counting === 100) {
               clearInterval(timerID);
               counting = 0;
+              playing = false
             }
           }, 5);
           wins++;
@@ -119,6 +139,7 @@ function computerChoice() {
             if (counting === 100) {
               clearInterval(timerID);
               counting = 0;
+              playing = false
             }
           }, 5);
           wins++;
